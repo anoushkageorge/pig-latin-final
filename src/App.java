@@ -1,42 +1,35 @@
 public class App {
-    public static void main(String[] args)
-    {
-        /*  Introduction and TODO List
+    public static void main(String[] args) {
+        // First Book
+        Book firstBook = new Book();
+        String firstBookUrl = "https://www.gutenberg.org/files/1513/1513-0.txt"; 
+        firstBook.readFromUrl("Romeo and Juliet", firstBookUrl);
 
-        This project is setup with four main classes:
-            1. App - the main application
-            2. Book - a class that creates the basic book objects.
-                - a Book contains a representation of a real book.
-                - Book has methods to read data in from various sources
-                - Book also has methods to read data out.
-            3. PigLatinTranslator - a static class
-                - Used to implement your translator.
-                - Has two public methods to take input and return a translated copy.
-                    - Book translate(Book input)
-                    - String translate(String input)
-            4. TestSuite - a simple class that helps you test your work.
-                - Just like CodingBat this class tries your code against various cases.
-                - It will tell you which cases return expected output or not
-         */
+        System.out.println("Original Content of First Book:");
+        firstBook.printlines(0, 15);
 
+        Book firstBookTranslated = PigLatinTranslator.translate(firstBook);
+        System.out.println("\nTranslated Content of First Book:");
+        firstBookTranslated.printlines(0, 15);
 
-        // Run tests, comment out once they pass.
-        TestSuite.run();
+        String firstOutputFile = "Romeo_and_Juliet_Translated.txt";
+        firstBookTranslated.writeToFile(firstOutputFile);
+        System.out.println("First book translation written to: " + firstOutputFile);
 
-        // Starter book
-        Book input = new Book();
+        // Second Book
+        Book secondBook = new Book();
+        String secondBookUrl = "https://www.gutenberg.org/cache/epub/74767/pg74767-images.html#CHAPTER_I"; 
+        secondBook.readFromUrl("Second Book Title", secondBookUrl);
 
-        // Start with a "test" book based on a string.
-        // Get this to work, and all the tests to pass first.
-        input.readFromString("Test", "Dog\nCat\nMouse");
+        System.out.println("\nOriginal Content of Second Book:");
+        secondBook.printlines(0, 15);
 
-        // Example reading from a URL
-        //input.readFromUrl("Romeo and Juliette", "https://gutenberg.pglaf.org/cache/epub/1513/pg1513.txt");
+        Book secondBookTranslated = PigLatinTranslator.translate(secondBook);
+        System.out.println("\nTranslated Content of Second Book:");
+        secondBookTranslated.printlines(0, 15);
 
-        input.printlines(0,2);
-        Book output = PigLatinTranslator.translate(input);
-        output.printlines(0,2);
-        //output.writeToFile();
+        String secondOutputFile = "Second_Book_Translated.txt";
+        secondBookTranslated.writeToFile(secondOutputFile);
+        System.out.println("Second book translation written to: " + secondOutputFile);
     }
 }
-

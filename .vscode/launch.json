@@ -9,6 +9,13 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
+            "projectName": "pig-latin-fr_e7bdaaba"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
             "projectName": "pig-latin-template_2ab430a4"
         },
         {
